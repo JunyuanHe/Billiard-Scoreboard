@@ -1,0 +1,32 @@
+//pluginManagement {
+//    repositories {
+//        maven { url 'https://plugins.gradle.org/m2/' }
+//        maven { url 'https://maven.aliyun.com/nexus/content/repositories/google' }
+//        maven { url 'https://maven.aliyun.com/nexus/content/groups/public' }
+//        maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter'}
+//
+//        gradlePluginPortal()
+//        google()
+//        mavenCentral()
+//    }
+//}
+//dependencyResolutionManagement {
+//    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+//    repositories {
+//        maven { url 'https://plugins.gradle.org/m2/' }
+//        maven { url 'https://maven.aliyun.com/nexus/content/repositories/google' }
+//        maven { url 'https://maven.aliyun.com/nexus/content/groups/public' }
+//        maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter'}
+//
+//        google()
+//        mavenCentral()
+//    }
+//}
+//rootProject.name = "My Application2"
+//include ':app'
+
+include ':app'
+include ':capacitor-cordova-android-plugins'
+project(':capacitor-cordova-android-plugins').projectDir = new File('./capacitor-cordova-android-plugins/')
+
+apply from: 'capacitor.settings.gradle'

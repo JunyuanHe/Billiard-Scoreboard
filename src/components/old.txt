@@ -1,0 +1,142 @@
+import { useState } from "react";
+import { IonApp, IonButton, IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardContent, IonGrid, IonRow, IonCol, IonInput } from "@ionic/react";
+import "@ionic/react/css/core.css";
+// import "./styles.css";
+
+const SnookerScoringApp: React.FC = () => {
+  const [playerOneName, setPlayerOneName] = useState("Player 1");
+  const [playerTwoName, setPlayerTwoName] = useState("Player 2");
+  const [playerOneScore, setPlayerOneScore] = useState(0);
+  const [playerTwoScore, setPlayerTwoScore] = useState(0);
+  const [playerOneFouls, setPlayerOneFouls] = useState(0);
+  const [playerTwoFouls, setPlayerTwoFouls] = useState(0);
+  const [frame, setFrame] = useState(1);
+  const [playerOneWins, setPlayerOneWins] = useState(0);
+  const [playerTwoWins, setPlayerTwoWins] = useState(0);
+  const [history, setHistory] = useState<string[]>([]);
+
+  const scores = [1, 2, 3, 4, 5, 6, 7]; // Snooker ball points
+  const foulPoints = [4, 5, 6, 7]; // Foul penalties
+
+  const addScore = (player: string, points: number) => {
+    if (player === "Player 1") {
+      setPlayerOneScore(playerOneScore + points);
+    } else {
+      setPlayerTwoScore(playerTwoScore + points);
+    }
+    setHistory([...history, `${player} scored ${points} points`]);
+  };
+
+  const addFoul = (foulingPlayer: string, points: number) => {
+    if (foulingPlayer === "Player 1") {
+      setPlayerOneFouls(playerOneFouls + 1);
+      setPlayerTwoScore(playerTwoScore + points);
+    } else {
+      setPlayerTwoFouls(playerTwoFouls + 1);
+      setPlayerOneScore(playerOneScore + points);
+    }
+    setHistory([...history, `${foulingPlayer} committed a foul, ${points} points awarded to opponent`]);
+  };
+
+  const nextFrame = () => {
+    if (playerOneScore > playerTwoScore) {
+      setPlayerOneWins(playerOneWins + 1);
+    } else if (playerTwoScore > playerOneScore) {
+      setPlayerTwoWins(playerTwoWins + 1);
+    }
+    setPlayerOneScore(0);
+    setPlayerTwoScore(0);
+    setPlayerOneFouls(0);
+    setPlayerTwoFouls(0);
+    setFrame(frame + 1);
+    setHistory([]);
+  };
+
+  return (
+    <IonApp>
+      <IonHeader>
+        <IonToolbar color="primary">
+          <IonTitle>Snooker Scoring System</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+      <IonContent className="ion-padding">
+        <IonCard className="score-card">
+          <IonCardContent>
+          <IonInput value={playerOneName} onIonChange={(e) => setPlayerOneName(e.detail.value!)} placeholder="Enter Player 1 Name" />
+          <IonInput value={playerTwoName} onIonChange={(e) => setPlayerTwoName(e.detail.value!)} placeholder="Enter Player 2 Name" />
+            <h2>Frame: {frame}</h2>
+            <IonGrid>
+              <IonRow>
+                <IonCol className="player-col player1">
+                  <h2>{playerOneName}</h2>
+                  <p>Score: {playerOneScore}</p>
+                  <p>Fouls: {playerOneFouls}</p>
+                  <p>Wins: {playerOneWins}</p>
+                </IonCol>
+                <IonCol className="player-col player2">
+                  <h2>{playerTwoName}</h2>
+                  <p>Score: {playerTwoScore}</p>
+                  <p>Fouls: {playerTwoFouls}</p>
+                  <p>Wins: {playerTwoWins}</p>
+                </IonCol>
+              </IonRow>
+            </IonGrid>
+          </IonCardContent>
+        </IonCard>
+        <IonGrid>
+          <IonRow>
+            {scores.map((points) => (
+              <IonCol key={points}>
+                <IonButton expand="full" onClick={() => addScore(playerOneName, points)}>
+                {playerOneName}: +{points}
+                </IonButton>
+              </IonCol>
+            ))}
+          </IonRow>
+          <IonRow>
+            {scores.map((points) => (
+              <IonCol key={points}>
+                <IonButton expand="full" onClick={() => addScore(playerTwoName, points)}>
+                {playerTwoName}: +{points}
+                </IonButton>
+              </IonCol>
+            ))}
+          </IonRow>
+          <IonRow>
+            {foulPoints.map((points) => (
+              <IonCol key={points}>
+                <IonButton expand="full" color="warning" onClick={() => addFoul(playerOneName, points)}>
+                {playerOneName} Foul: +{points} to {playerTwoName}
+                </IonButton>
+              </IonCol>
+            ))}
+          </IonRow>
+          <IonRow>
+            {foulPoints.map((points) => (
+              <IonCol key={points}>
+                <IonButton expand="full" color="warning" onClick={() => addFoul(playerTwoName, points)}>
+                {playerTwoName} Foul: +{points} to {playerOneName}
+                </IonButton>
+              </IonCol>
+            ))}
+          </IonRow>
+        </IonGrid>
+        <IonButton expand="full" color="danger" onClick={nextFrame}>
+          Next Frame
+        </IonButton>
+        <IonCard className="history-card">
+          <IonCardContent>
+            <h3>Score History</h3>
+            <ul>
+              {history.map((entry, index) => (
+                <li key={index}>{entry}</li>
+              ))}
+            </ul>
+          </IonCardContent>
+        </IonCard>
+      </IonContent>
+    </IonApp>
+  );
+};
+
+export default SnookerScoringApp;

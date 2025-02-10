@@ -1,0 +1,184 @@
+.Player-container {
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.Player-ball-container {
+    padding: 0 7.5%;
+}
+
+.Player-all-balls {
+    padding: 10px 0;
+    border: var(--darkgrey) 1px solid;
+    border-radius: var(--xs);
+    margin-top: var(--m);
+    /*     
+    flex-grow: 1;
+    flex-basis: 0;
+    flex-wrap: wrap; */
+}
+
+.grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(7rem, 40%), 1fr));
+}
+
+.Player-general-container {
+    padding: 0 7.5%;
+    text-align: center;
+}
+
+.Player-general {
+    border: var(--darkgrey) 1px solid;
+    border-radius: var(--xs);
+    margin-top: var(--xs);
+}
+
+
+
+.circle {
+    width: 40px;
+    height: 40px;
+    background-color: lightblue;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.small-circle-button {
+    --border-radius: 50%;
+    /* Ensures a circular shape */
+    --border-width: 2px;
+    /* Keep the outline visible */
+    --border-color: var(--ion-color-primary);
+    width: 30px;
+    /* Set width */
+    height: 30px;
+    /* Set height (same as width to make it circular) */
+    /* min-width: 40px; 
+    min-height: 40px;
+    max-width: 40px; */
+    padding: 0;
+    /* Remove default Ionic button padding */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    /* Adjust text size for small button */
+    text-transform: none;
+    /* Prevent uppercase transformation */
+}
+
+.circle-button {
+    --border-radius: 50%;
+    /* Makes it a circle */
+    --border-width: 2px;
+    --border-style: solid;
+    --border-color: var(--ion-color-primary);
+    width: 40px;
+    height: 40px;
+    min-width: unset;
+    /* Prevents auto-expansion */
+    min-height: unset;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-transform: none;
+    /* Avoids uppercase default styling */
+}
+
+/* Adjust for dark mode */
+@media (prefers-color-scheme: dark) {
+    .circle-button {
+        --border-color: var(--ion-color-light);
+    }
+}
+
+.Player-ball {
+    /* make it responsive */
+    max-width: 100%;
+    min-width: 50px;
+    width: 100%;
+    height: auto;
+    display: block;
+    /* div height to be the same as width*/
+    padding-top: 40%;
+    padding-bottom: 40%;
+
+    /* make it a circle */
+    /* border-radius: 50%; */
+
+    /* Centering on image`s center*/
+    background-position-y: center;
+    background-position-x: center;
+    background-repeat: no-repeat;
+
+    /* it makes the clue thing, takes smaller dimension to fill div */
+    background-size: cover;
+
+    /* it is optional, for making this div centered in parent*/
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    text-align: center;
+    color: aqua;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: large;
+}
+
+.Player-red {
+    /* make it responsive */
+    max-width: 100%;
+    min-width: 50px;
+    width: 18%;
+    height: auto;
+    display: block;
+    /* div height to be the same as width*/
+    padding-top: 8%;
+    padding-bottom: 8%;
+    background-image: url("../../public/red.png");
+}
+
+.Player-yellow {
+    background-image: url("../../public/yellow.png");
+}
+
+.Player-green {
+    background-image: url("../../public/green.png");
+}
+
+.Player-brown {
+    background-image: url("../../public/brown.png");
+}
+
+.Player-blue {
+    background-image: url("../../public/blue.png");
+}
+
+.Player-pink {
+    background-image: url("../../public/pink.png");
+}
+
+.Player-black {
+    background-image: url("../../public/black.png");
+}
+
+h4 {
+    margin: 10px auto;
+}
+
+button {
+    width: 48%;
+    margin: 0 1px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-size: large;
+}

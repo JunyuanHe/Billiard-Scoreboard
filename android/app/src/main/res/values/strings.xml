@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Billiard Scoreboard</string>
+    <string name="title_activity_main">Billiard Scoreboard</string>
+    <string name="package_name">com.billiard</string>
+    <string name="custom_url_scheme">com.billiard</string>
+</resources>

@@ -1,0 +1,32 @@
+.Player-score-container {
+    padding: 0 7.5%;
+}
+
+.Player-score {
+    border: var(--darkgrey) 1px solid;
+    border-radius: var(--xs);
+    margin-top: var(--m);
+}
+
+.Player-score-selected {
+    border: var(--darkgrey) 1px solid;
+    border-radius: var(--xs);
+    margin-top: var(--m);
+    background-color: var(--primary);
+    color: white;
+    transition: transform 0.3ls, background-color 0.3s, color 0.3s;
+}
+
+
+
+h1 {
+    margin: 0 auto;
+    font-size: 64px;
+    font-weight: bold;
+}
+
+h2 {
+    margin: 5px auto;
+}
+
+

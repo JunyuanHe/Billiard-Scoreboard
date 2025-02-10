@@ -1,0 +1,119 @@
+body {
+    /* --ion-background-color: #f8f9fa; */
+    /* --ion-text-color: #333; */
+    --ion-background-color: var(--ion-color-light);
+    --ion-text-color: var(--ion-color-dark);
+    --player1-color: #ffdddd;
+    /* --player1-color: var(--ion-color-primary); */
+    --player2-color: #dde5ff;
+    /* --player2-color: var(--ion-color-secondary); */
+    font-family: Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        /* --ion-background-color: var(--ion-color-dark);
+      --ion-text-color: var(--ion-color-light); */
+        /* --player1-color: #ffdddd; */
+        --player1-color: var(--ion-color-light-tint);
+        /* --player2-color: #dde5ff; */
+        --player2-color: var(--ion-color-light-tint);
+        /* --player1-color: #712422;
+        --player2-color: #0e2f4d; */
+    }
+}
+
+
+.score-card, .history-card, .ball-card {
+    /* background: #ffffff; */
+    /* color: #333; */
+    background: var(--ion-background-color);
+    color: var(--ion-text-color);
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    /* padding: 3px; */
+    /* margin-bottom: 15px; */
+}
+
+.player-col {
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    /* font-weight: bold; */
+}
+
+.ball-col {
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.ball-pot {
+    padding-bottom: 5px;
+}
+
+.ball-foul {
+    padding-top: 5px;
+}
+
+.player1 {
+    background-color: var(--player1-color);
+    margin-right: 2px;
+    border-radius: 8px 0 0 8px;
+}
+
+.player2 {
+    background-color: var(--player2-color);
+    margin-left: 2px;
+    border-radius: 0 8px 8px 0;
+}
+
+.player-name {
+    font-size: 1.0rem;
+    font-weight: bold;
+    /* color: #333; */
+}
+
+.score {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--ion-color-primary);
+}
+
+.foul {
+    font-size: 1.0rem;
+    color: var(--ion-color-warning);
+}
+
+.win {
+    font-size: 1.0rem;
+    color: var(--ion-color-success);
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.history-card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.history-card li {
+    background: var(--ion-background-color);
+    padding: 3px 8px;
+    margin: 3px 0;
+    border-radius: 6px;
+}
+
+ion-button {
+    font-size: 0.9rem;
+    /* font-weight: bold; */
+}
+
+ion-input {
+    /* background: #f1f1f1; */
+    border-radius: 8px;
+    padding: 8px;
+    color: var(--ion-text-color)
+        /* color: #333; */
+}
