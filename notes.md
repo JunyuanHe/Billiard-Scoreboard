@@ -73,3 +73,25 @@ SSLCertificateKeyFile /etc/pki/tls/private/mathcs.cn.key
 ```
 
 where the filename is changed into the newly copied file.
+
+
+
+## Github release
+
+```bash
+git checkout -b release-v1.0.0 
+```
+
+
+
+```
+git add .
+git commit -m "release-v1.0.0"
+```
+
+
+
+```bash
+git push origin release-v1.0.0
+```
+
