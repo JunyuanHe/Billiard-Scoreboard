@@ -117,3 +117,11 @@ ion-input {
     color: var(--ion-text-color)
         /* color: #333; */
 }
+
+.click-effect {
+    transition: transform 0.1s ease-in-out;
+}
+
+.click-effect:active {
+    transform: scale(0.9);
+}

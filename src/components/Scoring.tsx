@@ -144,7 +144,7 @@ const SnookerScoringApp: React.FC = () => {
                 <IonRow class="ion-justify-content-center ball-pot">
                   {scores.map((points) => (
                     <IonCol key={points} size="3" sizeSm="12/7" sizeMd="1.5" sizeXl="1" style={{ padding: "0" }}>
-                      <IonButton size="small" shape="round" fill="clear" onClick={() => addScore(playerOneName, points)} >
+                      <IonButton size="small" shape="round" fill="clear" onClick={() => addScore(playerOneName, points)} className="click-effect" >
                         <IonIcon slot="icon-only" src={"/plus" + points.toString() + ".svg"} size="large"></IonIcon>
                       </IonButton>
                     </IonCol>
@@ -153,7 +153,7 @@ const SnookerScoringApp: React.FC = () => {
                 <IonRow class="ion-justify-content-center ball-foul">
                   {foulPoints.map((points) => (
                     <IonCol size="3" sizeSm="2" sizeMd="1.5" sizeXl="1" key={points} style={{ padding: "0" }}>
-                      <IonButton size="small" shape="round" fill="clear" onClick={() => addFoul(playerOneName, points)}>
+                      <IonButton size="small" shape="round" fill="clear" onClick={() => addFoul(playerOneName, points)} className="click-effect">
                         <IonIcon slot="icon-only" src={"/minus" + points.toString() + ".svg"} size="large"></IonIcon>
                       </IonButton>
                     </IonCol>
@@ -167,7 +167,7 @@ const SnookerScoringApp: React.FC = () => {
                 <IonRow  className="ion-justify-content-center ball-pot"  >
                   {scores.map((points) => (
                     <IonCol key={points} size="3" sizeSm="12/7" sizeMd="1.5" sizeXl="1" style={{ padding: "0" }}>
-                      <IonButton size="small" shape="round" fill="clear" onClick={() => addScore(playerTwoName, points)}>
+                      <IonButton size="small" shape="round" fill="clear" onClick={() => addScore(playerTwoName, points)} className="click-effect">
                         <IonIcon slot="icon-only" src={"/plus" + points.toString() + ".svg"} size="large"></IonIcon>
                       </IonButton>
                     </IonCol>
@@ -176,7 +176,7 @@ const SnookerScoringApp: React.FC = () => {
                 <IonRow className="ion-justify-content-center ball-foul">
                   {foulPoints.map((points) => (
                     <IonCol size="3" sizeSm="2" sizeMd="1.5" sizeXl="1" key={points} style={{ padding: "0" }}>
-                      <IonButton size="small" shape="round" fill="clear" onClick={() => addFoul(playerOneName, points)}>
+                      <IonButton size="small" shape="round" fill="clear" onClick={() => addFoul(playerOneName, points)} className="click-effect">
                         <IonIcon slot="icon-only" src={"/minus" + points.toString() + ".svg"} size="large"></IonIcon>
                       </IonButton>
                     </IonCol>
@@ -198,7 +198,7 @@ const SnookerScoringApp: React.FC = () => {
         <IonCardContent>
           <h3>Score History</h3>
           <ul>
-            {history.map((entry, index) => (
+            {history.toReversed().map((entry, index) => (
               <li key={index}>{entry}</li>
             ))}
           </ul>
