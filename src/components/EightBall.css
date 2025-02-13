@@ -65,7 +65,7 @@ body {
     color: var(--ion-color-success);
     font-weight: bold;
     margin-top: 10px;
-}
+} 
 
 .history-card ul {
     list-style-type: none;
