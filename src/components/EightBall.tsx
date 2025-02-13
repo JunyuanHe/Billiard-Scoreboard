@@ -87,13 +87,13 @@ const EightBallScoringApp: React.FC = () => {
                 <div className="player-name">
                   <IonInput value={playerOneName} onIonChange={(e) => setPlayerOneName(e.detail.value!)} placeholder="Enter Name"/>
                 </div>
-                <div className="win">{playerOneWins}</div>
+                <div className="eightball-win">{playerOneWins}</div>
               </IonCol>
               <IonCol className="player-col player2">
                 <div className="player-name">
                   <IonInput value={playerTwoName} onIonChange={(e) => setPlayerTwoName(e.detail.value!)} placeholder="Enter Name"/>
                 </div>
-                <div className="win">{playerTwoWins}</div>
+                <div className="eightball-win">{playerTwoWins}</div>
               </IonCol>
             </IonRow>
             <IonRow>
