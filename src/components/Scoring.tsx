@@ -176,7 +176,7 @@ const SnookerScoringApp: React.FC = () => {
                 <IonRow className="ion-justify-content-center ball-foul">
                   {foulPoints.map((points) => (
                     <IonCol size="3" sizeSm="2" sizeMd="1.5" sizeXl="1" key={points} style={{ padding: "0" }}>
-                      <IonButton size="small" shape="round" fill="clear" onClick={() => addFoul(playerOneName, points)} className="click-effect">
+                      <IonButton size="small" shape="round" fill="clear" onClick={() => addFoul(playerTwoName, points)} className="click-effect">
                         <IonIcon slot="icon-only" src={"/minus" + points.toString() + ".svg"} size="large"></IonIcon>
                       </IonButton>
                     </IonCol>
